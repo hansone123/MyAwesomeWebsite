@@ -20,7 +20,7 @@ const selectArticle = () => {
           `SELECT
             *
           FROM
-            Article`
+            article`
           , (error, result) => {
             if (error) {
               console.error('SQL error: ', error);
@@ -63,7 +63,7 @@ const modifyArticle = (insertValues, userId) => {
       if (connectionError) {
         reject(connectionError); // 若連線有問題回傳錯誤
       } else { // Article資料表修改指定id一筆資料
-        connection.query('UPDATE Article SET ? WHERE article_id = ?', [insertValues, userId], (error, result) => {
+        connection.query('UPDATE article SET ? WHERE article_id = ?', [insertValues, userId], (error, result) => {
           if (error) {
             console.error('SQL error: ', error);// 寫入資料庫有問題時回傳錯誤
             reject(error);
@@ -87,7 +87,7 @@ const deleteArticle = (userId) => {
       if(connectionError){
         reject(connectionError);
       } else { // Article資料表修改指定id一筆資料
-        connection.query('DELETE FROM Article WHERE article_id = ?', userId, (error, result) => {
+        connection.query('DELETE FROM article WHERE article_id = ?', userId, (error, result) => {
           if (error) {
             console.error('SQL error: ', error);// 資料庫存取有問題時回傳錯誤
             reject(error);
