@@ -2,11 +2,11 @@ import express from 'express';
 import mysql from 'mysql';
 import config from './../../config/config';
 import article from './article.route';
-import user from './user.route'
+import user from './user.route';
 
 const router = express.Router();
 
-router.use('/user', user)
+router.use('/user', user);
 router.use('/article', article);
 
 /* GET localhost:[port]/api page. */
@@ -33,7 +33,6 @@ router.get('/sqlTest', (req, res) => {
       console.log(connection);
     }
   });
-
 });
 
 export default router;
